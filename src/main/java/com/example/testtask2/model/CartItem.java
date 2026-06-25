@@ -23,4 +23,35 @@ public class CartItem {
     @Column(nullable = false)
     private Integer quantity;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
 }
