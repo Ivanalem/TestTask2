@@ -24,14 +24,11 @@ public class Order {
     @Column(nullable = false)
     private OrderStatus status = OrderStatus.PENDING;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private List<OrderItem> item = new ArrayList<>();
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItem> items = new ArrayList<>();
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.PERSIST)
     private Payment payment;
-
-    @Column(name = "total_sum", nullable = false)
-    private Long totalSum;
 
     //Статусы заказа
     public enum OrderStatus {

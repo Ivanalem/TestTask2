@@ -13,20 +13,20 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false,unique = true)
+    private String userName;
 
     @NotBlank
     @Column(nullable = false)
-    String userName;
-
-    @NotBlank
-    @Column(nullable = false)
-    String password;
+    private String password;
 
     @Email
-    @NotBlank
-    String email;
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Order> order = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 }

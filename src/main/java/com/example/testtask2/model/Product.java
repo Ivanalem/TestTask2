@@ -13,13 +13,12 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    @NotBlank
-    String name;
+    private Long id;
 
     @Column(nullable = false)
-    @NotNull
+    private String name;
+
+    @Column(nullable = false)
     private Long price;
 
     @Column(length = 2000, nullable = false)
@@ -30,7 +29,7 @@ public class Product {
             @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    Set<Category> categories =  new HashSet<>();
+    private Set<Category> categories =  new HashSet<>();
 
 
 

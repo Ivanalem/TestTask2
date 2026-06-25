@@ -14,9 +14,6 @@ public class Payment {
     @JoinColumn(name = "order_id", nullable = false, unique = true)
     private Order order;
 
-    @Column(name = "total_sum", nullable = false)
-    private Long totalSum;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PaymentStatus status = PaymentStatus.PENDING;

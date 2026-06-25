@@ -14,10 +14,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_name")
-    @NotBlank
+    @Column(name = "category_name", nullable = false, unique = true)
     private String name;
 
     @ManyToMany(mappedBy = "categories")
-    Set<Product> products = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 }

@@ -8,13 +8,13 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    Order order;
+    private Order order;
 
-    @Column(name = "Item_name", nullable = false)
+    @Column(name = "item_name", nullable = false)
     private String itemName;
 
     @Column(name = "item_price", nullable = false)
