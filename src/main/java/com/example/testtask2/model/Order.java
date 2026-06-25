@@ -24,10 +24,10 @@ public class Order {
     @Column(nullable = false)
     private OrderStatus status = OrderStatus.PENDING;
 
-    @OneToMany(mappedBy = "orders", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<OrderItem> item = new ArrayList<>();
 
-    @OneToOne(mappedBy = "orders", cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "order", cascade = CascadeType.PERSIST)
     private Payment payment;
 
     @Column(name = "total_sum", nullable = false)

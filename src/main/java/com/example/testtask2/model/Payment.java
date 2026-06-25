@@ -12,7 +12,7 @@ public class Payment {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false, unique = true)
-    private Order orders;
+    private Order order;
 
     @Column(name = "total_sum", nullable = false)
     private Long totalSum;

@@ -10,22 +10,18 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    Order orders;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    Order order;
 
     @Column(name = "Item_name", nullable = false)
-    private String ItemName;
+    private String itemName;
 
     @Column(name = "item_price", nullable = false)
-    private Long ItemPrice;
+    private Long itemPrice;
 
     @Column(name = "quantity",nullable = false)
-    private Integer quantity;
+    private Integer itemQuantity;
 
     @Column(name = "subtotal", nullable = false)
     private Long subtotal;

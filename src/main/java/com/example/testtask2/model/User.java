@@ -24,6 +24,7 @@ public class User {
     String password;
 
     @Email
+    @NotBlank
     String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
