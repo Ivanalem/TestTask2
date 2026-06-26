@@ -39,14 +39,12 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleValidation(MethodArgumentNotValidException ex) {
 
-        String message = ex.getBindingResult()
-                .getFieldError()
-                .getDefaultMessage();
+
 
         return new ErrorResponse(
                 400,
                 "Bad Request",
-                message,
+                ex.getMessage(),
                 LocalDateTime.now()
         );
     }
