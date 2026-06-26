@@ -24,6 +24,7 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
     }
+
     @ExceptionHandler(ConflictException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ErrorResponse handleConflict(ConflictException ex) {
@@ -35,10 +36,10 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
     }
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleValidation(MethodArgumentNotValidException ex) {
 
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleValidation(BadRequestException ex) {
 
 
         return new ErrorResponse(
