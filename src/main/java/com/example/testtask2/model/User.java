@@ -27,6 +27,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders = new ArrayList<>();
+
     public List<Order> getOrders() {
         return orders;
     }
@@ -66,7 +69,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Order> orders = new ArrayList<>();
 }
